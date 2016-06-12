@@ -59,7 +59,7 @@ attack_type::attack_type(const config& cfg) :
 	specials_(cfg.child_or_empty("specials"))
 {
 	if (description_.empty())
-		description_ = translation::egettext(id_.c_str());
+		description_ = cfg["name"].t_str();
 
 	if(icon_.empty()){
 		if (id_ != "")

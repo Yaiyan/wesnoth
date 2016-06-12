@@ -56,7 +56,6 @@
 namespace translation
 {
 	std::string dgettext(const char* domain, const char* msgid);
-	std::string egettext(const char*);
 	std::string dsgettext(const char * domainname, const char *msgid);
 	//const char* sngettext(const char *singular, const char *plural, int n);
 	std::string dsngettext(const char * domainname, const char *singular, const char *plural, int n);
