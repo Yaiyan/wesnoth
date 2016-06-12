@@ -478,7 +478,6 @@ static void init_locale() {
 	const std::string& intl_dir = filesystem::get_intl_dir();
 	translation::bind_textdomain(PACKAGE, intl_dir.c_str(), "UTF-8");
 	translation::bind_textdomain(PACKAGE "-lib", intl_dir.c_str(), "UTF-8");
-	translation::set_default_textdomain(PACKAGE);
 }
 
 /**

@@ -292,12 +292,6 @@ void bind_textdomain(const char* domain, const char* directory, const char* /*en
 	get_manager().update_locale();
 }
 
-void set_default_textdomain(const char* domain)
-{
-	LOG_G << "set_default_textdomain: '" << domain << "'\n";
-//	get_manager().set_default_messages_domain(domain);
-}
-
 void set_language(const std::string& language, const std::vector<std::string>* /*alternates*/)
 {
 	// why should we need alternates? which languages we support should only be related
@@ -311,8 +305,4 @@ int compare(const std::string& s1, const std::string& s2)
 	return std::use_facet<std::collate<char> >(get_manager().get_locale()).compare(s1.c_str(), s1.c_str() + s1.size(), s2.c_str(), s2.c_str() + s2.size());
 }
 
-void init()
-{
-	LOG_G << "initializing languages\n";
-}
 }

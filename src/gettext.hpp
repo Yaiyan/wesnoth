@@ -67,13 +67,9 @@ namespace translation
 	inline UNUSEDNOWARN static std::string sngettext(const char* str1, const char* str2, int n)
 	{ return translation::dsngettext(GETTEXT_DOMAIN, str1, str2 , n); }
 
-
 	void bind_textdomain(const char* domain, const char* directory, const char* encoding);
-	void set_default_textdomain(const char* domain);
-
 	void set_language(const std::string& language, const std::vector<std::string>* alternates);
 
-	void init();
 	int compare(const std::string& s1,const std::string& s2);
 }
 
