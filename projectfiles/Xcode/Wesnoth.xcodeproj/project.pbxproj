@@ -4604,7 +4604,7 @@
 				8D11072E0486CEB800E47090 /* Frameworks */,
 				B5599E8F0EC64D18008DD061 /* CopyFiles */,
 				B5BB6CFC0F8948FB00444FBF /* CopyFiles */,
-				91C2A6EB1B843AA900346948 /* Copy Translations (if present) */,
+				91C2A6EB1B843AA900346948 /* Copy Translations */,
 			);
 			buildRules = (
 			);
@@ -4701,19 +4701,20 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		91C2A6EB1B843AA900346948 /* Copy Translations (if present) */ = {
+		91C2A6EB1B843AA900346948 /* Copy Translations */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Translations (if present)";
+			name = "Copy Translations";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "cd \"$SOURCE_ROOT/../..\"\nif [ -e \"./translations\" ]; then\nrsync -rv --delete \"./translations\" \"$BUILT_PRODUCTS_DIR/$UNLOCALIZED_RESOURCES_FOLDER_PATH/\";\nfi";
+			shellPath = "/bin/sh -v";
+			shellScript = "TRANS_DIR=\"$BUILT_PRODUCTS_DIR/$UNLOCALIZED_RESOURCES_FOLDER_PATH/translations\"\n\ncd \"$SOURCE_ROOT/../../po\"\nmkdir -p \"$TRANS_DIR\"\n\nfor DOMAIN in wesnoth*; do\n mkdir -p \"$TRANS_DIR/$DOMAIN\"\n for PO_FILE in $DOMAIN/*.po; do\n  cp -fp \"$PO_FILE\" \"$TRANS_DIR/$PO_FILE\"\n done\ndone";
+			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
