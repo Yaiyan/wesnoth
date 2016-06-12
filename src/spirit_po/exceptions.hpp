@@ -10,6 +10,10 @@
 
 namespace spirit_po {
 
+// Added to silence warning about missing prototype.
+std::string string_iterator_context(const std::string & str,
+                                    std::string::const_iterator it);
+
 // Show the next 80 characters from some iterator position.
 // Intended to be used for parser error messages
 template <typename Iterator>
