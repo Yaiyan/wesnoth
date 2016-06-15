@@ -473,7 +473,6 @@ static void init_locale() {
 	    setlocale(LC_ALL, "English");
 	#else
 		std::setlocale(LC_ALL, "C");
-		translation::init();
 	#endif
 	const std::string& intl_dir = filesystem::get_intl_dir();
 	translation::bind_textdomain(PACKAGE, intl_dir.c_str(), "UTF-8");
